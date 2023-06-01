@@ -21,6 +21,7 @@ namespace AssignmentDataSecurityEncoding
             
             return hexOutput;
         }
+
         public void HexadecimalToString(string nameStr)
         {
             var result = string.Empty;
