@@ -1,0 +1,29 @@
+def anagrams(file_name, word):
+    # Read the file and store all the words in a list
+    with open(file_name, 'r') as file:
+        word_list = file.read().split()
+
+    # Recursive function to find anagrams
+    def find_anagrams(current_word, remaining_letters):
+        if len(remaining_letters) == 0:
+            # Base case: All letters have been used
+            if current_word != word and current_word in word_list:
+                print(current_word)
+        else:
+            for i in range(len(remaining_letters)):
+                # Choose a letter from the remaining letters
+                selected_letter = remaining_letters[i]
+
+                # Exclude the selected letter from the remaining letters
+                remaining = remaining_letters[:i] + remaining_letters[i+1:]
+
+                # Recursively find anagrams
+                find_anagrams(current_word + selected_letter, remaining)
+
+    # Start the recursive function
+    find_anagrams('', word)
+
+# Usage example
+anagrams("words.txt", "rfee")
+
+

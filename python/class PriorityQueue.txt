@@ -1,0 +1,36 @@
+class PriorityQueue:
+    def __init__(self):
+        self.container = []
+
+    def insert(self, number):
+        self.container.append(number)
+
+    def min(self):
+        if self.isEmpty():
+            raise ValueError("Priority queue is empty")
+        return min(self.container)
+
+    def removeMin(self):
+        if self.isEmpty():
+            raise ValueError("Priority queue is empty")
+        min_value = self.min()
+        self.container.remove(min_value)
+
+    def isEmpty(self):
+        return len(self.container) == 0
+
+    def __len__(self):
+        return len(self.container)
+
+# Example usage
+pq = PriorityQueue()
+pq.insert(3)
+pq.insert(1)
+pq.insert(5)
+pq.insert(2)
+
+print(pq.min())     
+pq.removeMin()
+print(pq.min())      
+print(len(pq))      
+print(pq.isEmpty())
